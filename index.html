@@ -1,116 +1,26 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIVE Fortune Generator</title>
-
-<style>
-body {
-    margin:0;
-    background:black;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    font-family:Arial, sans-serif;
-    color:white;
-}
-
-.container {
-    text-align:center;
-    max-width:800px;
-}
-
-button {
-    padding:15px 35px;
-    font-size:20px;
-    border:none;
-    border-radius:12px;
-    background:#ff0050;
-    color:white;
-    cursor:pointer;
-}
-
-#fortune {
-    margin-top:40px;
-    font-size:32px;
-    min-height:120px;
-    opacity:0;
-    transition:0.4s;
-}
-.show {
-    opacity:1;
-}
-</style>
+<title>Test</title>
 </head>
+<body style="background:black;color:white;text-align:center;margin-top:100px;font-size:30px;">
 
-<body>
+<button onclick="generateFortune()" style="font-size:25px;">Натисни</button>
 
-<div class="container">
-    <button onclick="generateFortune()">🎁 Изтегли късмет</button>
-    <div id="fortune"></div>
-</div>
+<p id="fortune"></p>
 
 <script>
-const fortunes = [
-"Парите идват, когато спреш да ги гониш.",
-"Днес някой мисли за теб.",
-"Очаква те изненадващ успех.",
-"Скоро ще направиш правилния избор.",
-"Смел ход ще ти донесе награда.",
-"Нов човек ще отвори нова врата.",
-"Късметът обича търпеливите.",
-"Това, което чакаш, вече е на път.",
-"Голяма възможност ще се появи в най-неочакван момент.",
-"Днес е ден за действие.",
-"Скоро ще получиш комплимент, който ще те накара да се усмихнеш.",
-"Една идея ще ти донесе печалба.",
-"Успехът ти ще дойде от място, което не очакваш.",
-"Време е да рискуваш малко.",
-"Вселената ти готви приятна изненада.",
-"Мечта, за която мислиш често, ще започне да се сбъдва.",
-"Очаква те среща със съдбоносен човек.",
-"Днес е началото на нещо по-голямо.",
-"Скоро ще чуеш 'Браво!'",
-"Някой ще ти подаде ръка в точния момент.",
-"В следващите дни ще получиш добра новина.",
-"Късметът ти се увеличава.",
-"Ще намериш решение на стар проблем.",
-"Ново начало е по-близо, отколкото мислиш.",
-"Скоро ще имаш повод да празнуваш.",
-"Ще спечелиш уважение.",
-"Една врата се затваря, но две се отварят.",
-"Време е да повярваш в себе си.",
-"Това, което даваш, ще ти се върне двойно.",
-"Ще изненадаш дори себе си."
-];
-
-let lastIndex = -1;
-
 function generateFortune() {
-    let randomIndex;
-    do {
-        randomIndex = Math.floor(Math.random() * fortunes.length);
-    } while(randomIndex === lastIndex);
-
-    lastIndex = randomIndex;
-
-    const fortuneDiv = document.getElementById("fortune");
-    fortuneDiv.classList.remove("show");
+    const fortunes = [
+        "Работи.",
+        "Късмет!",
+        "Това е тест."
+    ];
     
-    setTimeout(() => {
-        fortuneDiv.innerText = fortunes[randomIndex];
-        fortuneDiv.classList.add("show");
-    }, 200);
+    const randomIndex = Math.floor(Math.random() * fortunes.length);
+    document.getElementById("fortune").innerText = fortunes[randomIndex];
 }
-
-// SPACE или ENTER trigger
-document.addEventListener("keydown", function(event) {
-    if (event.code === "Space" || event.code === "Enter") {
-        generateFortune();
-    }
-});
 </script>
 
 </body>
